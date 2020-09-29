@@ -56,6 +56,7 @@
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
+  var buttonsDiv = $("#buttons");
     $(document).ready(function() {
       var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
       for(var i = 0; i < letters.length; i++){
@@ -68,8 +69,10 @@
           letterBtn.text(letters[i]);
         buttonsDiv.append(letterBtn);
       }
-      $("#buttons").on("click", function(event){
-        // Change me
+      $(".letter-button").on("click", function(event){
+        fridgeMagnet.addClass("letter fridge-color");
+        fridgeMagnet.text($(this).attr("data-letter"));
+        $("#display").append(fridgeMagnet);
       });
       $("#clear").on("click", function(event){
         displayDiv.empty();
